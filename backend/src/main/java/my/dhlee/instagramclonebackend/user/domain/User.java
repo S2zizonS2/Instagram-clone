@@ -1,5 +1,6 @@
 package my.dhlee.instagramclonebackend.user.domain;
 
+import static javax.persistence.CascadeType.ALL;
 import static javax.persistence.EnumType.STRING;
 import static lombok.AccessLevel.PROTECTED;
 
@@ -17,6 +18,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import my.dhlee.instagramclonebackend.user.domain.follow.Follow;
+import my.dhlee.instagramclonebackend.user.dto.request.PasswordUpdateRequest;
+import my.dhlee.instagramclonebackend.user.dto.request.UserEditRequest;
 
 @NoArgsConstructor(access = PROTECTED)
 @Getter
@@ -27,7 +30,7 @@ public class User {
     @Id @GeneratedValue
     private Long id;
 
-    @Column(name = "user_id", nullable = false, unique = true)
+    @Column(name = "user_id", length = 50, nullable = false, unique = true)
     private String userId;
 
     @Column(nullable = false)
@@ -36,22 +39,22 @@ public class User {
     @Column(nullable = false)
     private String name;
 
-    private String phone;
-
+    @Column(nullable = false)
     @Enumerated(STRING)
     private Gender gender;
 
-    @OneToMany(mappedBy = "follower")
+    @OneToMany(mappedBy = "follower", cascade = ALL, orphanRemoval = true)
     private final List<Follow> followers = new ArrayList<>();
 
-    @OneToMany(mappedBy = "following")
+    @OneToMany(mappedBy = "following", cascade = ALL, orphanRemoval = true)
     private final List<Follow> followings = new ArrayList<>();
 
     @Builder
-    public User(final String userId, final String password, final String name) {
+    public User(final String userId, final String password, final String name, final Gender gender) {
         this.userId = userId;
         this.password = password;
         this.name = name;
+        this.gender = gender;
     }
 
     public void follow(User targetUser) {
@@ -64,6 +67,15 @@ public class User {
         final Follow follow = new Follow(this, targetUser);
         this.followings.remove(follow);
         targetUser.followers.remove(follow);
+    }
+
+    public void update(final UserEditRequest userEditRequest) {
+        this.userId = userEditRequest.getUserId();
+        this.name = userEditRequest.getName();
+        this.gender = Gender.valueOf(userEditRequest.getGender());
+    }
+    public void updatePassword(final PasswordUpdateRequest passwordUpdateRequest) {
+        this.password = passwordUpdateRequest.getNewPassword();
     }
 
     @Override
