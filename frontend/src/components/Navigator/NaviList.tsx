@@ -29,12 +29,12 @@ const style = css`
     flex-direction: column;
     width: 100%;
     height: 100%;
-
-
+    // 모바일
     @media screen and (max-width: 768px){
         flex-direction: row;
         justify-content: space-around;
         align-items: center;
+        border-top: 1px solid var(--grey-200);
     }
 `;
 

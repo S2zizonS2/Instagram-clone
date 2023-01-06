@@ -17,30 +17,38 @@ function NaviItem(props: NaviItemProps) {
 }
 
 const style = css`
-    display: inline-flex;
+    display: flex;
     align-items: center;
     cursor: pointer;
-    width: 100%;
-    height: 100%;
-    svg {
-        font-size: 2rem;
-        margin-right: 0.5rem;
+    font-weight: 400;
+    font-size: 1.8rem;
+    p {
+        margin-left: 1rem;
+        font-size: 1rem;
     }
-    @media screen and (max-width: 1239px){
+    // 태블릿
+    @media screen and (max-width: 1239px) and (min-width: 769px){
+        justify-content: center;
+        align-items: center;
         p {
             display: none;
         }
     }
 
+    // 데스크탑, 테블릿
     @media screen and (min-width: 769px) {
         min-height: 48px;
-        width: 100%;
         margin-bottom: 0.5rem;
     }
 
-    @media screen and (max-width: 768px){
+    // 모바일
+    @media screen and (max-width: 768px) {
         justify-content: center;
         align-items: center;
+
+        p {
+            display: none;
+        }
     }
 `;
 

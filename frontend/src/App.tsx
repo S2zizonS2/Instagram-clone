@@ -1,6 +1,6 @@
 import { css } from "@emotion/react";
 import React from "react";
-import Navigator from "./components/Navigator/Navigator";
+import Aside from "./components/Navigator/Aside";
 import GlobalStyle from "./GlobalStyle";
 
 function App() {
@@ -8,9 +8,11 @@ function App() {
         <React.Fragment>
             <GlobalStyle />
             <div css={style}>
-                <Navigator
-                    className="navi"
+                <Aside
+                    className="aside"
                 />
+                <div className="aside-mock"></div>
+
                 <div className="content">
                     content
                 </div>
@@ -23,27 +25,42 @@ function App() {
 
 const style = css`
     display: flex;
-    width: 100vw;
     height: 200vh;
     flex-direction: row;
-    .content {
+    .content, .aside-mock {
         width: 100%;
         height: 100%;
-        background: red;
-    }
-    .navi {
-        width: 100%;
-        height: 48px;
     }
 
-    
+    .aside {
+        position: fixed;
+    }
+
+    @media screen and (min-width: 1239px) {
+        .aside{
+            width: 250px;
+        }   
+        
+    }
+
+    @media screen and (min-width: 769px) and (max-width: 1238px) {
+        .aside{
+            left: 0;
+            
+        }
+
+        .aside, .aside-mock {
+            min-width: 4.5rem;
+            max-width: 4.5rem;
+        }
+    }
 
     @media screen and (max-width: 768px){
-        .navi {
-            position: fixed;
+        flex-direction: column-reverse;
+        .aside {
             bottom: 0;
-            flex-direction: column;
-            background-color: yellow;
+            height: 52px;
+            max-height: 52px;
         }
     }
     
