@@ -37,8 +37,8 @@ const style = css`
     }
 
     @media screen and (min-width: 1239px) {
-        .aside{
-            width: 250px;
+        .aside, .aside-mock{
+            max-width: 250px;
         }   
         
     }
