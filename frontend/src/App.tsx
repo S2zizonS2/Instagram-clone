@@ -1,29 +1,41 @@
 import { css } from "@emotion/react";
 import React from "react";
+import Content from "./components/Content/Content";
+
 import Aside from "./components/Navigator/Aside";
+import Theme from "./components/Theme/Theme";
 import GlobalStyle from "./GlobalStyle";
+import ThemeContext from "./store/ThemeContext";
 
 function App() {
+
     return (
         <React.Fragment>
-            <GlobalStyle />
-            <div css={style}>
-                <Aside
-                    className="aside"
-                />
-                <div className="aside-mock"></div>
+            <Theme>
+                <GlobalStyle />
+                <div css={style}>
+                    <Aside
+                        className="aside"
+                    />
+                    <div className="aside-mock"></div>
 
-                <div className="content">
-                    content
+                    <Content
+                        className="content"
+                    />
                 </div>
-            </div>
-        </React.Fragment>
+            </Theme>
+
+        </React.Fragment >
 
     );
 }
 
 
 const style = css`
+    button {
+        border: 1px solid;
+        cursor: pointer;
+    }
     display: flex;
     height: 200vh;
     flex-direction: row;
