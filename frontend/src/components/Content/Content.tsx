@@ -4,7 +4,7 @@ import ThemeContext from "@/store/ThemeContext";
 
 
 function Content(props: BaseProps) {
-    const { onChangeTheme, theme, themeStyle } = React.useContext(ThemeContext);
+    const { onChangeTheme } = React.useContext(ThemeContext);
 
     return (
         <div className={props?.className}>

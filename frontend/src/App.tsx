@@ -2,7 +2,7 @@ import { css } from "@emotion/react";
 import React from "react";
 import Content from "./components/Content/Content";
 
-import Aside from "./components/Navigator/Aside";
+import Aside from "./components/Aside/Aside";
 import Theme from "./components/Theme/Theme";
 import GlobalStyle from "./GlobalStyle";
 import ThemeContext from "./store/ThemeContext";
@@ -48,14 +48,14 @@ const style = css`
         position: fixed;
     }
 
-    @media screen and (min-width: 1239px) {
+    @media screen and (min-width: 1240px) {
         .aside, .aside-mock{
             max-width: 250px;
         }   
         
     }
 
-    @media screen and (min-width: 769px) and (max-width: 1238px) {
+    @media screen and (min-width: 769px) and (max-width: 1239px) {
         .aside{
             left: 0;
             

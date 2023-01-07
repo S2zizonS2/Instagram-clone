@@ -21,7 +21,6 @@ const style = css`
     align-items: center;
     cursor: pointer;
     font-weight: 400;
-    font-size: 1.8rem;
     p {
         margin-left: 1rem;
         font-size: 1rem;

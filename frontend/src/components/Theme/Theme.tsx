@@ -20,7 +20,7 @@ const LightTheme: ThemeStyle = {
 
 
 function Theme(props: { children: React.ReactNode; }) {
-    const [theme, setTheme] = useState<string>("light");
+    const [theme, setTheme] = useState<string>("dark");
     const [initThemeStyle, setInitTheme] =
         useState<ThemeStyle>(() => theme === "light" ? LightTheme : DarkTheme);
 
@@ -31,11 +31,12 @@ function Theme(props: { children: React.ReactNode; }) {
         else if (theme === "dark") {
             setInitTheme(() => DarkTheme);
         }
+        setTheme(() => theme);
     }, []);
 
     return (
         <ThemeContext.Provider value={{
-            theme: "light",
+            theme: theme,
             themeStyle: initThemeStyle,
             onChangeTheme: onChangeTheme,
         }}>

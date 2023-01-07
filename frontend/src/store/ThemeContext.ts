@@ -2,7 +2,7 @@ import ThemeContextProps from "@/Type/ThemeContextProps";
 import React from "react";
 
 const ThemeContext = React.createContext<ThemeContextProps>({
-    theme: "light",
+    theme: "",
     themeStyle: {
         aside: {
             backgroundColor: "",
