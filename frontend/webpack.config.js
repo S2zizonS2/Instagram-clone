@@ -27,7 +27,7 @@ module.exports = (env, argv) => {
             extensions: [".js", ".jsx", ".ts", ".tsx"],
             alias: {
                 "@": path.resolve(__dirname, "./src/"),
-            }
+            },
         },
         module: {
             rules: [
@@ -35,6 +35,10 @@ module.exports = (env, argv) => {
                     test: /\.tsx?$/,
                     use: ["babel-loader", "ts-loader"],
                 },
+                {
+                    test: /\.(png|jpg|jpeg|gif|svg)$/,
+                    type: "asset"
+                }
             ],
         },
         plugins: [
