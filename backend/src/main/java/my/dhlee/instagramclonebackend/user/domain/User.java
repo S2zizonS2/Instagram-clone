@@ -8,6 +8,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 import javax.persistence.Column;
+import javax.persistence.Embedded;
 import javax.persistence.Entity;
 import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
@@ -27,7 +28,8 @@ import my.dhlee.instagramclonebackend.user.dto.request.UserEditRequest;
 @Entity
 public class User {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     private Long id;
 
     @Column(name = "user_id", length = 50, nullable = false, unique = true)
@@ -36,10 +38,16 @@ public class User {
     @Column(nullable = false)
     private String password;
 
-    @Column(nullable = false)
-    private String name;
+    @Column(name = "user_name", nullable = false)
+    private String username;
 
-    @Column(nullable = false)
+    @Column(name = "full_name", nullable = false)
+    private String fullname;
+
+    @Embedded
+    @Column(name = "birth_date", nullable = false)
+    private BirthDate birthDate;
+
     @Enumerated(STRING)
     private Gender gender;
 
@@ -50,11 +58,19 @@ public class User {
     private final List<Follow> followings = new ArrayList<>();
 
     @Builder
-    public User(final String userId, final String password, final String name, final Gender gender) {
+    public User(
+        final String userId,
+        final String password,
+        final String username,
+        final String fullname,
+        final BirthDate birthDate
+    ) {
+
         this.userId = userId;
         this.password = password;
-        this.name = name;
-        this.gender = gender;
+        this.username = username;
+        this.fullname = fullname;
+        this.birthDate = birthDate;
     }
 
     public void follow(User targetUser) {
@@ -71,9 +87,10 @@ public class User {
 
     public void update(final UserEditRequest userEditRequest) {
         this.userId = userEditRequest.getUserId();
-        this.name = userEditRequest.getName();
+        this.username = userEditRequest.getName();
         this.gender = Gender.valueOf(userEditRequest.getGender());
     }
+
     public void updatePassword(final PasswordUpdateRequest passwordUpdateRequest) {
         this.password = passwordUpdateRequest.getNewPassword();
     }

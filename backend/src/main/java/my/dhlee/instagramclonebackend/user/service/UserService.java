@@ -1,34 +1,27 @@
 package my.dhlee.instagramclonebackend.user.service;
 
-import my.dhlee.instagramclonebackend.exception.user.UserNotFoundException;
+import lombok.RequiredArgsConstructor;
 import my.dhlee.instagramclonebackend.user.domain.User;
+import my.dhlee.instagramclonebackend.user.dto.request.SignUpRequest;
 import my.dhlee.instagramclonebackend.user.dto.request.UserEditRequest;
-import my.dhlee.instagramclonebackend.user.dto.request.UserRequest;
 import my.dhlee.instagramclonebackend.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 
+@RequiredArgsConstructor
 @Transactional
 @Service
 public class UserService {
-
     private final UserRepository userRepository;
 
-    public UserService(final UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
-
-    public Long save(UserRequest userRequest) {
-        User user = userRequest.toEntity();
+    public void signUp(final SignUpRequest signUpRequest) {
+        User user = signUpRequest.toEntity();
         userRepository.save(user);
-
-        return user.getId();
     }
 
     public void update(final Long id, final UserEditRequest userEditRequest) {
         final User user = findById(id);
-
         user.update(userEditRequest);
     }
 
@@ -39,7 +32,8 @@ public class UserService {
     }
 
     private User findById(final Long id) {
-        return userRepository.findById(id)
-            .orElseThrow(UserNotFoundException::new);
+        return null;
     }
+
+
 }
