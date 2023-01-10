@@ -80,4 +80,8 @@ public class AttemptRequest implements Serializable {
         this.username = username;
     }
 
+    public String getUserId() {
+        return Objects.nonNull(email) ? email : phoneNumber;
+    }
+
 }

@@ -2,7 +2,6 @@ package my.dhlee.instagramclonebackend.user.service;
 
 import lombok.RequiredArgsConstructor;
 import my.dhlee.instagramclonebackend.user.domain.User;
-import my.dhlee.instagramclonebackend.user.dto.request.SignUpRequest;
 import my.dhlee.instagramclonebackend.user.dto.request.UserEditRequest;
 import my.dhlee.instagramclonebackend.user.repository.UserRepository;
 import org.springframework.stereotype.Service;
@@ -14,11 +13,6 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 public class UserService {
     private final UserRepository userRepository;
-
-    public void signUp(final SignUpRequest signUpRequest) {
-        User user = signUpRequest.toEntity();
-        userRepository.save(user);
-    }
 
     public void update(final Long id, final UserEditRequest userEditRequest) {
         final User user = findById(id);

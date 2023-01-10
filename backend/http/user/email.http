@@ -1,0 +1,17 @@
+POST http://localhost:8080/api/v1/accounts/send_verify_email
+Content-Type: application/json
+
+{
+  "deviceId": "test-device",
+  "email": "dhlee3994@gmail.com"
+}
+
+###
+POST http://localhost:8080/api/v1/accounts/check_confirmation_code
+Content-Type: application/json
+
+{
+  "deviceId": "test-device",
+  "email": "dhlee3994@gmail.com",
+  "verifyCode": "2Ws7KT"
+}

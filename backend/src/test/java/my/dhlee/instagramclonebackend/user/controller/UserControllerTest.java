@@ -14,6 +14,7 @@ import my.dhlee.instagramclonebackend.user.dto.request.AttemptRequest;
 import my.dhlee.instagramclonebackend.user.dto.request.AttemptRequest.AttemptRequestBuilder;
 import my.dhlee.instagramclonebackend.user.dto.request.BirthDateDto;
 import my.dhlee.instagramclonebackend.user.dto.request.SignUpRequest;
+import my.dhlee.instagramclonebackend.user.service.MailService;
 import my.dhlee.instagramclonebackend.user.service.UserService;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
@@ -29,10 +30,13 @@ import org.springframework.test.web.servlet.MockMvc;
 
 @AutoConfigureMockMvc
 @WebMvcTest
-class SignUpControllerTest {
+class UserControllerTest {
 
     @MockBean
     private UserService userService;
+
+    @MockBean
+    private MailService mailService;
 
     @Autowired
     private MockMvc mvc;
