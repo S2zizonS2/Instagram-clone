@@ -1,5 +1,6 @@
 package my.dhlee.instagramclonebackend.user.controller;
 
+import java.net.URI;
 import javax.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import my.dhlee.instagramclonebackend.user.dto.request.VerifyEmail;
@@ -50,6 +51,6 @@ public class AccountController {
     public ResponseEntity<Void> signUp(@Valid @RequestBody SignUpRequest signUpRequest) {
         signUpRequest.validate();
         accountService.signUp(signUpRequest);
-        return ResponseEntity.ok().build();
+        return ResponseEntity.created(URI.create("/login")).build();
     }
 }
