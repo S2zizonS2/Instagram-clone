@@ -1,6 +1,6 @@
 package my.dhlee.instagramclonebackend.user.dto.request;
 
-import java.io.Serializable;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import java.util.Objects;
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Pattern;
@@ -12,10 +12,7 @@ import my.dhlee.instagramclonebackend.common.exception.InvalidValueException;
 
 @NoArgsConstructor
 @Getter
-public class AttemptRequest implements Serializable {
-
-    private static final long serialVersionUID = 149472L;
-
+public class AttemptRequest {
     private static final String PASSWORD_REGEX = "^(?=.*[A-Za-z])(?=.*\\d)(?=.*[$@$!%*#?&])[A-Za-z\\d$@$!%*#?&]{8,12}$";
     private static final java.util.regex.Pattern PASSWORD_PATTERN = java.util.regex.Pattern.compile(PASSWORD_REGEX);
 
@@ -65,14 +62,8 @@ public class AttemptRequest implements Serializable {
     }
 
     @Builder
-    private AttemptRequest(
-        final String email,
-        final String phoneNumber,
-        final String password,
-        final String fullname,
-        final String username
-    ) {
-
+    public AttemptRequest(final String email, final String phoneNumber, final String password, final String fullname,
+        final String username) {
         this.email = email;
         this.phoneNumber = phoneNumber;
         this.password = password;
@@ -80,6 +71,7 @@ public class AttemptRequest implements Serializable {
         this.username = username;
     }
 
+    @JsonIgnore
     public String getUserId() {
         return Objects.nonNull(email) ? email : phoneNumber;
     }
