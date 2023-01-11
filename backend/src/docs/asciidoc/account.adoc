@@ -1,0 +1,112 @@
+ifndef::snippets[]
+:snippets: ../../../build/generated-snippets
+endif::[]
+:doctype: book
+:icons: font
+:source-highlighter: highlightjs
+:toc: left
+:toclevels: 4
+
+== Attempt
+=== 기본정보 유효성 검사 - 사용자 이름 미입력
+==== Request
+include::{snippets}/account-controller-test/fullname-could-not-null/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/fullname-could-not-null/http-response.adoc[]
+
+=== 기본정보 유효성 검사 - 성명 미입력
+==== Request
+include::{snippets}/account-controller-test/username-could-not-null/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/username-could-not-null/http-response.adoc[]
+
+=== 기본정보 유효성 검사 - 이메일은 null 허용
+==== Request
+include::{snippets}/account-controller-test/email-allowed-null/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/email-allowed-null/http-response.adoc[]
+
+=== 기본정보 유효성 검사 - 휴대폰번호는 null 허용
+==== Request
+include::{snippets}/account-controller-test/phone-number-allowed-null/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/phone-number-allowed-null/http-response.adoc[]
+
+=== 기본정보 유효성 검사 - 이메일, 휴대폰번호 둘 다 null 비허용
+==== Request
+include::{snippets}/account-controller-test/is-not-allowed-both-null-email-and-phone-number/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/is-not-allowed-both-null-email-and-phone-number/http-response.adoc[]
+
+=== 기본정보 유효성 검사 - 이메일, 휴대폰번호 둘 중 하나만 입력
+==== Request
+include::{snippets}/account-controller-test/email-and-phone-number-could-not-filled-both/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/email-and-phone-number-could-not-filled-both/http-response.adoc[]
+
+=== 비밀번호 유효성 검사 - 영문 누락
+==== Request
+include::{snippets}/account-controller-test/password-could-include-english/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/password-could-include-english/http-response.adoc[]
+
+=== 비밀번호 유효성 검사 - 숫자 누락
+==== Request
+include::{snippets}/account-controller-test/password-could-include-number/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/password-could-include-number/http-response.adoc[]
+
+=== 비밀번호 유효성 검사 - 특수문자 누락
+==== Request
+include::{snippets}/account-controller-test/password-could-include-special-character/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/password-could-include-special-character/http-response.adoc[]
+
+=== 비밀번호 유효성 검사 - 8자 미만
+==== Request
+include::{snippets}/account-controller-test/password-length-could-at-least8/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/password-length-could-at-least8/http-response.adoc[]
+
+=== 비밀번호 유효성 검사 - 12자 초과
+==== Request
+include::{snippets}/account-controller-test/password-length-could-no-more-than12/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/password-length-could-no-more-than12/http-response.adoc[]
+
+=== 생년월일 유효성 검사 - 1900년 이전 출생자
+==== Request
+include::{snippets}/account-controller-test/birth-date-could-at-least1900/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/birth-date-could-at-least1900/http-response.adoc[]
+
+=== 생년월일 유효성 검사 - 2100년 이후 출생자
+==== Request
+include::{snippets}/account-controller-test/birth-date-could-no-more-than2100/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/birth-date-could-no-more-than2100/http-response.adoc[]
+
+=== 생년월일 유효성 검사 - 만 14세 미만
+==== Request
+include::{snippets}/account-controller-test/birth-date-could-at-least14-years-old/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/birth-date-could-at-least14-years-old/http-response.adoc[]
+
+=== 인증코드 발송 - 유효하지 않은 이메일
+==== Request
+include::{snippets}/account-controller-test/invalid-email-could-not-receive-verify-code/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/invalid-email-could-not-receive-verify-code/http-response.adoc[]
+
+=== 인증코드 입력 - 유효하지 않은 인증코드
+==== Request
+include::{snippets}/account-controller-test/invalid-verify-code/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/invalid-verify-code/http-response.adoc[]
+
+=== 회원가입
+==== Request
+include::{snippets}/account-controller-test/sign-up/http-request.adoc[]
+==== Response
+include::{snippets}/account-controller-test/sign-up/http-response.adoc[]
+

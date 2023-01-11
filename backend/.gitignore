@@ -2,6 +2,7 @@
 .idea
 build/
 out/
+BOOT-INF/
 *.iws
 *.iml
 *.ipr
