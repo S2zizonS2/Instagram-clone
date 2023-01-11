@@ -1,7 +1,7 @@
 package my.dhlee.instagramclonebackend.user.service;
 
 import java.time.LocalDateTime;
-import java.util.Random;
+import java.util.UUID;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import my.dhlee.instagramclonebackend.common.exception.ErrorCode;
@@ -26,10 +26,8 @@ public class MailService {
     private final EmailAuthRepository emailAuthRepository;
     private final JavaMailSender javaMailSender;
 
-    private static final String SALT_CHARS = "abcdefghijklmnopqrstuvwxyz1234567890ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-
     @Async
-    public String sendEmail(final VerifyEmail verifyEmail) {
+    public void sendEmail(final VerifyEmail verifyEmail) {
         final String verifyCode = createVerifyCode();
         emailAuthRepository.save(new EmailAuth(verifyEmail.getEmail(), verifyCode));
 
@@ -40,20 +38,10 @@ public class MailService {
         simpleMailMessage.setText(verifyCode);
 
         javaMailSender.send(simpleMailMessage);
-
-        return verifyCode;
     }
 
     private String createVerifyCode() {
-        final StringBuffer verifyCode = new StringBuffer();
-        final Random random = new Random(432923748L);
-
-        for (int i = 0; i < 6; i++) {
-            int index = random.nextInt() * SALT_CHARS.length();
-            verifyCode.append(SALT_CHARS.charAt(index));
-        }
-
-        return verifyCode.toString();
+        return UUID.randomUUID().toString().substring(0, 5);
     }
 
     public void verify(final VerifyEmail verifyEmail) {
