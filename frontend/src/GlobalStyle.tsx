@@ -152,6 +152,7 @@ const style = css`
         --grey-300: #b9bcc1;
         --grey-200: #dcdee1;
         --grey-100: #f5f6f6;
+        --grey-50: #FAFAFA;
         --white: #ffffff;
         --green-400: #44c46d;
         --green-300: #81C784;
