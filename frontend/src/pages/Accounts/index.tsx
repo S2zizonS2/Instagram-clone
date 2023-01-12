@@ -22,7 +22,9 @@ const style = css`
     width: 100vw;
     height: 100vh;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
     /* align-items: center; */
 
     background-color: var(--grey-100);

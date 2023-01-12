@@ -17,7 +17,8 @@ function Input(props: Props & BaseProps) {
 }
 
 const style = css`
-    border-radius: 8px;
+    border-radius: 4px;
+    width: 100%;
 `;
 
-export default Input;
+export default React.memo(Input);
