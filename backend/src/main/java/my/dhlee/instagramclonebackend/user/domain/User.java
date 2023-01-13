@@ -14,7 +14,6 @@ import javax.persistence.Enumerated;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToMany;
-import javax.persistence.Table;
 import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -24,7 +23,6 @@ import my.dhlee.instagramclonebackend.user.dto.request.UserEditRequest;
 
 @NoArgsConstructor(access = PROTECTED)
 @Getter
-@Table(name = "Users")
 @Entity
 public class User {
 
