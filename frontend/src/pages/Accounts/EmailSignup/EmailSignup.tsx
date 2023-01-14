@@ -7,6 +7,7 @@ import InputForm from "./InputForm";
 import ValueListType from "./ValueListType";
 import WrapStyle from "../WrapStyle";
 import { useNavigate } from "react-router-dom";
+import SubContentStyle from "../SubContentStyle";
 
 /**
  * Email 회원가입 페이지
@@ -52,7 +53,7 @@ function EmailSignup() {
 
             </MainWrapper>
             <div
-                css={[WrapStyle, loginInfoStyle]}
+                css={[WrapStyle, SubContentStyle]}
             >
                 <span>계정이 있으신가요? <a onClick={() => navigator("/accounts/login")}>로그인</a></span>
             </div>
@@ -83,17 +84,5 @@ const style = css`
     }
 `;
 
-const loginInfoStyle = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.95rem;
-    min-height: 4.5rem;
-
-    a {
-        color: #47afff;
-        cursor: pointer;
-    }
-`;
 
 export default EmailSignup;

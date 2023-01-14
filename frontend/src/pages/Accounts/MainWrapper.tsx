@@ -13,5 +13,4 @@ function MainWrapper(props: { children: React.ReactNode; style?: SerializedStyle
         </main>
     );
 }
-
 export default MainWrapper;

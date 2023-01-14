@@ -2,6 +2,7 @@ import { css } from "@emotion/react";
 import React from "react";
 import { Route, Routes } from "react-router-dom";
 import EmailSignup from "./EmailSignup/EmailSignup";
+import Login from "./Login/Login";
 
 
 /**
@@ -13,6 +14,7 @@ function index() {
         <section css={style}>
             <Routes>
                 <Route path="emailsignup" element={<EmailSignup />} />
+                <Route path="login" element={<Login />} />
             </Routes>
         </section>
     );

@@ -4,6 +4,7 @@ import React from "react";
 import inputStyle from "../InputStyle";
 import ValidInput from "./ValidInput";
 import ValueListType from "./ValueListType";
+import SubmitButtonStyle from "../SubmitButtonStyle";
 
 interface InputFormProps {
     valueList: ValueListType[];
@@ -14,7 +15,7 @@ function InputForm(props: InputFormProps) {
     const { valueList, onChange } = props;
     return (
         <form
-            css={[style, inputStyle]}
+            css={[style, inputStyle, SubmitButtonStyle]}
         >
             {
                 valueList.map((value, index: number) => (
@@ -50,15 +51,6 @@ const style = css`
         font-size: 0.75rem;
         text-align: center;
         color: var(--grey-400);
-    }
-
-    button[type="submit"] {
-        background-color: #47afff;
-        color: white;
-        font-weight: 600;
-        text-align: center;
-        font-size: 0.9rem;
-        margin-top: 1rem;
     }
 `;
 
