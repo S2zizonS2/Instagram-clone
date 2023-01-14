@@ -2,12 +2,12 @@ import TextOR from "@/components/common/TextOR";
 import OauthButtons from "@/components/OauthButtons/OauthButtons";
 import { css } from "@emotion/react";
 import React, { useCallback, useState } from "react";
-import Logo from "../Logo";
 import MainWrapper from "../MainWrapper";
 import InputForm from "./InputForm";
 import ValueListType from "./ValueListType";
 import WrapStyle from "../WrapStyle";
 import { useNavigate } from "react-router-dom";
+import SubContentStyle from "../SubContentStyle";
 
 /**
  * Email 회원가입 페이지
@@ -41,7 +41,6 @@ function EmailSignup() {
     return (
         <React.Fragment>
             <MainWrapper style={style}>
-                <Logo />
                 <h2>친구들의 사진과 동영상을 보려면 가입하세요.</h2>
                 <OauthButtons
                     className="oauth-buttons"
@@ -54,7 +53,7 @@ function EmailSignup() {
 
             </MainWrapper>
             <div
-                css={[WrapStyle, loginInfoStyle]}
+                css={[WrapStyle, SubContentStyle]}
             >
                 <span>계정이 있으신가요? <a onClick={() => navigator("/accounts/login")}>로그인</a></span>
             </div>
@@ -85,17 +84,5 @@ const style = css`
     }
 `;
 
-const loginInfoStyle = css`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 0.95rem;
-    min-height: 4.5rem;
-
-    a {
-        color: #47afff;
-        cursor: pointer;
-    }
-`;
 
 export default EmailSignup;
