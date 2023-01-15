@@ -22,7 +22,7 @@ function InputForm(props: InputFormProps) {
                     <ValidInput
                         key={index}
                         input={{
-                            type: "text",
+                            type: value.type,
                             name: value.name,
                             value: value.value,
                             onChange: onChange

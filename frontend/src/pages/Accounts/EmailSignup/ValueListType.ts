@@ -5,7 +5,8 @@ interface ValueListType {
     name: string;
     value: string;
     placeholder: string;
-    valid: boolean
+    valid: boolean;
+    type: string;
 }
 
 export default ValueListType;

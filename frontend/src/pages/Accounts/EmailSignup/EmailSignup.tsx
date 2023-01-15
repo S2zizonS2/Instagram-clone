@@ -32,10 +32,10 @@ function EmailSignup() {
     }, [values]);
 
     const valueList: ValueListType[] = [
-        { name: "userId", value: values.userId, placeholder: "휴대폰 번호 또는 이메일 주소", valid: true },
-        { name: "name", value: values.name, placeholder: "성명", valid: true },
-        { name: "userName", value: values.userName, placeholder: "사용자 이름", valid: true },
-        { name: "password", value: values.password, placeholder: "비밀번호", valid: true }
+        { name: "userId", value: values.userId, placeholder: "휴대폰 번호 또는 이메일 주소", valid: true, type: "text'" },
+        { name: "name", value: values.name, placeholder: "성명", valid: true, type: "text" },
+        { name: "userName", value: values.userName, placeholder: "사용자 이름", valid: true, type: "text" },
+        { name: "password", value: values.password, placeholder: "비밀번호", valid: true, type: "password" }
     ];
 
     return (
