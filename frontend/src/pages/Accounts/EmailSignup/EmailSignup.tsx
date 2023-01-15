@@ -8,17 +8,23 @@ import ValueListType from "./ValueListType";
 import WrapStyle from "../WrapStyle";
 import { useNavigate } from "react-router-dom";
 import SubContentStyle from "../SubContentStyle";
+import { useMutation } from "react-query";
+import attemptSignupValues from "@/utils/EmailSignup/attemptSignupValues";
 
 /**
  * Email 회원가입 페이지
  * @returns 
  */
 function EmailSignup() {
+
+
     const [values, setValues] = useState({
         userId: "",
         name: "",
         userName: "",
         password: ""
+    });
+    const { mutate } = useMutation(attemptSignupValues, {
     });
 
     const navigator = useNavigate();
@@ -30,6 +36,10 @@ function EmailSignup() {
             [name]: value
         });
     }, [values]);
+
+    const onBlur = useCallback((e: React.FocusEvent<HTMLInputElement>) => {
+        mutate(values);
+    }, [mutate, values]);
 
     const valueList: ValueListType[] = [
         { name: "userId", value: values.userId, placeholder: "휴대폰 번호 또는 이메일 주소", valid: true, type: "text'" },
@@ -49,6 +59,7 @@ function EmailSignup() {
                 <InputForm
                     valueList={valueList}
                     onChange={onChange}
+                    onBlur={onBlur}
                 />
 
             </MainWrapper>

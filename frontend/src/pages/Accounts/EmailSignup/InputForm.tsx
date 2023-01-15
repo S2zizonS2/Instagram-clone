@@ -9,10 +9,11 @@ import SubmitButtonStyle from "../SubmitButtonStyle";
 interface InputFormProps {
     valueList: ValueListType[];
     onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
+    onBlur: (e: React.FocusEvent<HTMLInputElement>) => void;
 }
 
 function InputForm(props: InputFormProps) {
-    const { valueList, onChange } = props;
+    const { valueList, onChange, onBlur } = props;
     return (
         <form
             css={[style, inputStyle, SubmitButtonStyle]}
@@ -25,7 +26,8 @@ function InputForm(props: InputFormProps) {
                             type: value.type,
                             name: value.name,
                             value: value.value,
-                            onChange: onChange
+                            onChange: onChange,
+                            onBlur: onBlur
                         }}
                         placeholder={value.placeholder}
                         valid={value.valid}
