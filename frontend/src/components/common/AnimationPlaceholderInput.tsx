@@ -42,7 +42,8 @@ const Label = React.memo(styled.label<{
     align-items: ${({ isTyping }) => isTyping ? "flex-start" : "center"};
     span {
         position: absolute;
-        font-size: 0.8rem
+        font-size: 0.8rem;
+        z-index: 3;
     }
 
     .typing {
