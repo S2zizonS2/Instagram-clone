@@ -44,10 +44,6 @@ function InputForm(props: InputFormProps) {
 
 const style = css`
     width: 100%;
-    label {
-        margin-bottom: 0.5rem;
-    }
-
     b {
         margin-top: 0.5rem;
         font-size: 0.75rem;
